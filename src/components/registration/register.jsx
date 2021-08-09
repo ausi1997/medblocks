@@ -5,10 +5,11 @@ import {Button , TextField } from "@material-ui/core";
 import { RadioGroup , Radio } from "@material-ui/core";
 import { FormControlLabel , FormControl , FormLabel } from "@material-ui/core";
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 
 const Register = ()=>{
-
+    const history = useHistory();
     const [FirstName , setFirstName] = useState('');
     const [LastName , setLastName] = useState('');
     const [Gender , setGender] = useState('');
@@ -39,6 +40,7 @@ const Register = ()=>{
       alert(
         "Patient Registered Successfully"
       );
+      history.push('/');
       console.log(data);
     })
     .catch((err) => {
