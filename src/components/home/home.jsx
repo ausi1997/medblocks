@@ -48,6 +48,11 @@ return(
     New Pateint +
   </Button>
   </Link>
+  <Link to='/upload' style={{textDecorationLine:'none'}}>
+    <Button style={{marginLeft:"30px"}} variant="contained" color="primary">
+    Upload File
+  </Button>
+  </Link>
   </div>
   </div>
   <div>
@@ -55,10 +60,10 @@ return(
       <Table className={classes.table} aria-label="simple table">
         <TableHead>
           <TableRow>
-            <TableCell >Patient Name</TableCell>
-            <TableCell align="right">Gender</TableCell>
-            <TableCell align="right">DOB&nbsp;(g)</TableCell>
-            <TableCell align="right">Contact&nbsp;(g)</TableCell>
+            <TableCell ><strong>Patient Name</strong></TableCell>
+            <TableCell align="center"><strong>Gender</strong></TableCell>
+            <TableCell align="center"><strong>DOB</strong></TableCell>
+            <TableCell align="center"><strong>Contact</strong></TableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -68,9 +73,9 @@ return(
             <TableCell>{ item.resource.name && item.resource.name[0].given}{" "} 
             {item.resource.name && item.resource.name[1]=== undefined?" " 
             :item.resource.name && item.resource.name[1].family}</TableCell>
-              <TableCell align="right">{item.resource.gender}</TableCell>
-              <TableCell align="right">{item.resource.birthDate}</TableCell>
-              <TableCell align="right">{item.resource.telecom && item.resource.telecom[0].value}</TableCell>
+              <TableCell align="center">{item.resource.gender}</TableCell>
+              <TableCell align="center">{item.resource.birthDate}</TableCell>
+              <TableCell align="center">{item.resource.telecom && item.resource.telecom[0].value}</TableCell>
             </TableRow>
           ))}
         </TableBody>
