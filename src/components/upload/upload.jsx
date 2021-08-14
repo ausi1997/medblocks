@@ -1,5 +1,6 @@
 import { TextField } from "@material-ui/core";
 import React, {useState} from "react";
+import Tree from "../tree/tree";
 
 
 
@@ -9,11 +10,11 @@ const [jsondata , setJsonData] = useState('');
 
  const handleFileChange = (files)=>{
     const file = files[0];
-    console.log(file);
+  //  console.log(file);
     const render = new FileReader();
     render.readAsBinaryString(file);
     render.onload = ()=>{
-        setJsonData(render.result);
+        setJsonData(JSON.parse(render.result));
         console.log(jsondata);
     }     
     render.onerror = ()=>{
@@ -26,6 +27,10 @@ console.log(jsondata);
         <div>
         <TextField type='file' className='file' onChange={(e)=>handleFileChange(e.target.files)}>
         </TextField>
+        <div>
+        <h3>{jsondata && jsondata.tree.name}</h3>
+        <Tree data = {jsondata.tree} ></Tree>
+        </div>
         </div>
     )
 }
