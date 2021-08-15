@@ -15,14 +15,14 @@ const [jsondata , setJsonData] = useState('');
     render.readAsBinaryString(file);
     render.onload = ()=>{
         setJsonData(JSON.parse(render.result));
-        console.log(jsondata);
+       // console.log(jsondata);
     }     
     render.onerror = ()=>{
         console.log('file error' , render.error);
     }
 }
 
-console.log(jsondata);
+// console.log(jsondata);
     return(
         <div>
         <TextField type='file' className='file' onChange={(e)=>handleFileChange(e.target.files)}>
